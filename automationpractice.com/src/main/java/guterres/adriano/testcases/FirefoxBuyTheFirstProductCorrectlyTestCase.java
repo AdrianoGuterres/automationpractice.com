@@ -2,9 +2,7 @@ package guterres.adriano.testcases;
 
 import java.util.concurrent.TimeUnit;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.Status;
@@ -18,7 +16,6 @@ import guterres.adriano.tasks.AddressesTasks;
 import guterres.adriano.tasks.AuthenticationTask;
 import guterres.adriano.tasks.BankWirePaymentTask;
 import guterres.adriano.tasks.CreateAccountFormTask;
-import guterres.adriano.tasks.OrderConfirmationTask;
 import guterres.adriano.tasks.OrderTasks;
 import guterres.adriano.tasks.PaymentTask;
 import guterres.adriano.tasks.ShippingTasks;
@@ -33,6 +30,7 @@ import guterres.adriano.verificationpoints.PaymentVerificationPoints;
 import guterres.adriano.verificationpoints.ShippingVerificationPoints;
 import guterres.adriano.verificationpoints.ShoppingCartVerificationPoints;
 
+
 public class FirefoxBuyTheFirstProductCorrectlyTestCase {
 	private WebDriver driver;
 
@@ -45,7 +43,6 @@ public class FirefoxBuyTheFirstProductCorrectlyTestCase {
 	private PaymentTask              paymentTask;
 	private BankWirePaymentTask      bankWirePaymentTask;
 	private OrderTasks               orderTasks;
-	private OrderConfirmationTask    orderConfirmationTask;
 
 	private AddFirstProductVerificationPoints    addFirstProductVerificationPoints;
 	private ShoppingCartVerificationPoints       shoppingCartVerificationPoints;
@@ -71,7 +68,6 @@ public class FirefoxBuyTheFirstProductCorrectlyTestCase {
 		this.paymentTask           = new PaymentTask(this.driver);
 		this.bankWirePaymentTask   = new BankWirePaymentTask(this.driver);
 		this.orderTasks            = new OrderTasks(this.driver);
-		this.orderConfirmationTask = new OrderConfirmationTask(this.driver);
 
 		this.addFirstProductVerificationPoints   = new AddFirstProductVerificationPoints(this.driver);
 		this.shoppingCartVerificationPoints      = new ShoppingCartVerificationPoints(this.driver);
@@ -107,7 +103,7 @@ public class FirefoxBuyTheFirstProductCorrectlyTestCase {
 		this.addFirstProductVerificationPoints.verifyProductShippingProduct();		
 		this.addFirstProductVerificationPoints.verifyTotalProduct();		
 
-		this.addFirstProductTask.clickcProceedToCheckoutButton();		
+		this.addFirstProductTask.clickcProceedToCheckoutButton();				
 
 		//------------------------------------------------------------------------------------------------------------------		
 
@@ -196,9 +192,7 @@ public class FirefoxBuyTheFirstProductCorrectlyTestCase {
 		
 		//-------------------------------------------------------------------------------------------------
 		
-		
-		// Falhando
-	    this.paymentVerificationPoints.verifyProductDescription();
+		this.paymentVerificationPoints.verifyProductDescription();
 		this.paymentVerificationPoints.verifyInStock();
 		this.paymentVerificationPoints.verifyProductUnitPrice();
 		this.paymentVerificationPoints.verifyProductQuantity();
@@ -213,7 +207,8 @@ public class FirefoxBuyTheFirstProductCorrectlyTestCase {
 		//--------------------------------------------------------------------------------------------------------
 		
 		this.bankWirePaymentVerificationPoints.verifyPaymentMethod();
-		this.bankWirePaymentTask.IConfirmMyOrderButton();
+		
+		this.bankWirePaymentTask.IConfirmMyOrderButton();		
 		
 		//-------------------------------------------------------------------------------------------
 		
@@ -225,10 +220,7 @@ public class FirefoxBuyTheFirstProductCorrectlyTestCase {
 		
 		this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
 
-
-
-		Report.log(Status.INFO, "Order history", ScreenShot.capture(this.driver));
-		
+		Report.log(Status.INFO, "Order history", ScreenShot.capture(this.driver));		
 	}
 
 	@After

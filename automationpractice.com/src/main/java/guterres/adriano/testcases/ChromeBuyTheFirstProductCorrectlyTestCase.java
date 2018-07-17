@@ -2,9 +2,7 @@ package guterres.adriano.testcases;
 
 import java.util.concurrent.TimeUnit;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.Status;
@@ -18,7 +16,6 @@ import guterres.adriano.tasks.AddressesTasks;
 import guterres.adriano.tasks.AuthenticationTask;
 import guterres.adriano.tasks.BankWirePaymentTask;
 import guterres.adriano.tasks.CreateAccountFormTask;
-import guterres.adriano.tasks.OrderConfirmationTask;
 import guterres.adriano.tasks.OrderTasks;
 import guterres.adriano.tasks.PaymentTask;
 import guterres.adriano.tasks.ShippingTasks;
@@ -33,6 +30,7 @@ import guterres.adriano.verificationpoints.PaymentVerificationPoints;
 import guterres.adriano.verificationpoints.ShippingVerificationPoints;
 import guterres.adriano.verificationpoints.ShoppingCartVerificationPoints;
 
+
 public class ChromeBuyTheFirstProductCorrectlyTestCase {
 	private WebDriver driver;
 
@@ -45,7 +43,6 @@ public class ChromeBuyTheFirstProductCorrectlyTestCase {
 	private PaymentTask              paymentTask;
 	private BankWirePaymentTask      bankWirePaymentTask;
 	private OrderTasks               orderTasks;
-	private OrderConfirmationTask    orderConfirmationTask;
 
 	private AddFirstProductVerificationPoints    addFirstProductVerificationPoints;
 	private ShoppingCartVerificationPoints       shoppingCartVerificationPoints;
@@ -57,7 +54,8 @@ public class ChromeBuyTheFirstProductCorrectlyTestCase {
 	private BankWirePaymentVerificationPoints    bankWirePaymentVerificationPoints;
 	private OrderVerificationPoints              orderVerificationPoints;
 
-	@Before 
+
+	@Before
 	public void setup() {	
 
 		this.driver = DriverSetup.getDriverConfiguredForChrome("http://automationpractice.com/index.php");
@@ -71,7 +69,6 @@ public class ChromeBuyTheFirstProductCorrectlyTestCase {
 		this.paymentTask           = new PaymentTask(this.driver);
 		this.bankWirePaymentTask   = new BankWirePaymentTask(this.driver);
 		this.orderTasks            = new OrderTasks(this.driver);
-		this.orderConfirmationTask = new OrderConfirmationTask(this.driver);
 
 		this.addFirstProductVerificationPoints   = new AddFirstProductVerificationPoints(this.driver);
 		this.shoppingCartVerificationPoints      = new ShoppingCartVerificationPoints(this.driver);
@@ -197,7 +194,6 @@ public class ChromeBuyTheFirstProductCorrectlyTestCase {
 		//-------------------------------------------------------------------------------------------------
 		
 		
-		// Falhando
 	    this.paymentVerificationPoints.verifyProductDescription();
 		this.paymentVerificationPoints.verifyInStock();
 		this.paymentVerificationPoints.verifyProductUnitPrice();
@@ -221,11 +217,10 @@ public class ChromeBuyTheFirstProductCorrectlyTestCase {
 		this.orderVerificationPoints.verifyOrderAmount();
 		this.orderVerificationPoints.verifyOrderStatus();
 		
-		this.orderTasks.clickBackToOrdersButton();
+		this.orderTasks.clickBackToOrdersButton();		
 		
 		this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
-
-
+		
 
 		Report.log(Status.INFO, "Order history", ScreenShot.capture(this.driver));
 		
