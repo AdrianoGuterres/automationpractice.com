@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import guterres.adriano.ressources.NavigationTools;
+
 public class CreateAccountAppObject {
 
 	private WebDriver driver;
@@ -16,105 +18,128 @@ public class CreateAccountAppObject {
 
 	public WebElement getCustomerTitleMrRadioButton() {
 		WebElement element = new WebDriverWait(this.driver, 10).until(ExpectedConditions.elementToBeClickable(By.id("id_gender1")));
-		return element;		
+		return element;	
 	}
 
 	public WebElement getCustomerTitleMrsRadioButton() {
-		WebElement element = new WebDriverWait(this.driver, 10).until(ExpectedConditions.elementToBeClickable(By.id("id_gender2")));
-		return element;			
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.xpath("//*[@id=\"center_column\"]/form/div/h3"));
+		return element;	
 	}
 
 	public WebElement getCustomerFirstNameTextField() {
-		return this.driver.findElement(By.id("customer_firstname"));		
+		
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.id("customer_firstname"));
+		return element;	
 	}
 
 	public WebElement getCustomerLastNameTextField() {
-		return this.driver.findElement(By.id("customer_lastname"));		
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.id("customer_lastname"));
+		return element;	
 	}
 
 	public WebElement getCustomerEmailTextField() {
-		return this.driver.findElement(By.id("email"));		
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.id("email"));
+		return element;	
 	}
 
 	public WebElement getCustomerPasswordTextField() {
-		return this.driver.findElement(By.id("passwd"));		
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.id("passwd"));
+		return element;	
 	}
 
 	public WebElement getCustomerDayDateBirthComboBox() {
-		return this.driver.findElement(By.id("days"));		
+		WebElement element = this.driver.findElement(By.id("days"));		
+		return element;	
 	}
 
 	public WebElement getCustomerMonthDateBirthComboBox() {
-		return this.driver.findElement(By.id("months"));		
+		WebElement element = this.driver.findElement(By.id("months"));	
+		return element;	
 	}
 
 	public WebElement getCustomerYearMonthDateBirthComboBox() {
-		return this.driver.findElement(By.id("years"));		
+		WebElement element =this.driver.findElement(By.id("years"));		
+		return element;	
 	}
 
 	public WebElement getCustomerSignNewsletterCheckBox() {
-		return this.driver.findElement(By.id("newsletter"));		
+		WebElement element = this.driver.findElement(By.id("newsletter"));	
+		return element;	
 	}
 
 	public WebElement getCustomerReceiveOffersCheckBox() {
-		return this.driver.findElement(By.id("optin"));		
+		WebElement element = this.driver.findElement(By.id("optin"));		
+		return element;	
 	}
 
 
-
-	public WebElement getAddressFirstNameTextField() {
-		return this.driver.findElement(By.id("firstname"));		
+	public WebElement getAddressFirstNameTextField() {	
+		WebElement element = NavigationTools.waitForClickability(this.driver,By.id("firstname"));
+		return element;	
 	}	
 
-	public WebElement getAddressLastNameTextField() {
-		return this.driver.findElement(By.id("lastname"));		
+	public WebElement getAddressLastNameTextField() {		
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.id("lastname"));
+		return element;	
 	}
 
-	public WebElement getAddressCompanyTextField() {
-		return this.driver.findElement(By.id("company"));		
+	public WebElement getAddressCompanyTextField() {	
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.id("company"));
+		return element;	
 	}
 
 	public WebElement getAddressAddressLine1TextField() {
-		return this.driver.findElement(By.id("address1"));		
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.id("address1"));
+		return element;	
 	}
 
 	public WebElement getAddressAddressLine2TextField() {
-		return this.driver.findElement(By.id("address2"));		
+		WebElement element = NavigationTools.waitForClickability(this.driver,By.id("address2"));
+		return element;	
 	}
 
 	public WebElement getAddressCityTextField() {
-		return this.driver.findElement(By.id("city"));		
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.id("city"));
+		return element;	
 	}
 
 	public WebElement getAddressStateComboBox() {
-		return this.driver.findElement(By.id("id_state"));		
+		WebElement element = this.driver.findElement(By.id("id_state"));		
+		return element;	
 	}
 
 	public WebElement getAddressPostalCodeTextField() {
-		return this.driver.findElement(By.id("postcode"));		
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.id("postcode"));
+		return element;	
 	}
 
 	public WebElement getAddressCountryComboBox() {
-		return this.driver.findElement(By.id("id_country"));		
+		WebElement element = this.driver.findElement(By.id("id_country"));	
+		return element;	
 	}
 
 	public WebElement getAddressAdditionalInfoTextArea() {
-		return this.driver.findElement(By.id("other"));		
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.id("other"));
+		return element;	
 	}
 
 	public WebElement getAddressHomePhoneTextField() {
-		return this.driver.findElement(By.id("phone"));		
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.id("phone"));
+		return element;	
 	}
 
 	public WebElement getAddressMobilePhoneTextField() {
-		return this.driver.findElement(By.id("phone_mobile"));		
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.id("phone_mobile"));
+		return element;	
 	}
 
 	public WebElement getAddressAliasReferenceTextField() {
-		return this.driver.findElement(By.id("alias"));		
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.id("alias"));
+		return element;	
 	}
 
 	public WebElement getAddressRegisterButton() {
-		return this.driver.findElement(By.id("submitAccount"));		
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.id("submitAccount"));
+		return element;	
 	}
 }

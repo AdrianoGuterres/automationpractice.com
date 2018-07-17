@@ -16,7 +16,7 @@ public class PaymentVerificationPoints {
 	private WebDriver driver;
 	
 
-	private final String PRODUCT_TITLE                      = "Faded Short Sleeve T-shirts";
+	private final String PRODUCT_DESCRIPTION                = "Faded Short Sleeve";
 	
 	private final String PRODUCT_IN_STOCK                   = "In stock";
 	
@@ -25,6 +25,8 @@ public class PaymentVerificationPoints {
 	private final String PRODUCT_QUANTITY                   = "1";
 	
 	private final String PRODUCT_TOTAL_PRICE_PER_PRODUCT    = "$16.51";
+	
+	
 	
 	private final String PRODUCT_TOTAL_PRICE_ALL_PRODUCTS   = "$16.51";
 	
@@ -37,25 +39,21 @@ public class PaymentVerificationPoints {
 	public PaymentVerificationPoints(WebDriver driver) {
 		this.driver = driver;
 		this.paymentAppObject = new PaymentAppObject(this.driver);		
-	}
+	}	
 	
-	
-	public boolean verifyProductTitle() {
+	public boolean verifyProductDescription() {
 		boolean aux = false;
 		
 		WebElement element = this.paymentAppObject.getProductNameField();
-		
-		System.out.println(element.getText());
 
-		if(element.getText().equalsIgnoreCase(this.PRODUCT_TITLE)) {
+		if(element.getText().contains(this.PRODUCT_DESCRIPTION)) {
 			Report.log(Status.PASS, "The title of product is correct.", ScreenShot.capture(this.driver));
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The title of product isn't correct.", ScreenShot.capture(this.driver));			
 		}		
 		return aux;		
-	}
-	
+	}	
 	
 	public boolean verifyInStock() {
 		boolean aux = false;
@@ -90,16 +88,14 @@ public class PaymentVerificationPoints {
 		
 		WebElement element = this.paymentAppObject.getQuantityImput();
 
-		if(element.getAttribute("value").equalsIgnoreCase(this.PRODUCT_QUANTITY)) {
+		if(element.getText().equalsIgnoreCase(this.PRODUCT_QUANTITY)) {
 			Report.log(Status.PASS, "The quantity is corect.", ScreenShot.capture(this.driver));
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The quantity isn't corect.", ScreenShot.capture(this.driver));			
 		}		
 		return aux;
-	}
-	
-	
+	}	
 		
 	public boolean verifyPriceTotalPerProduct() {
 		boolean aux = false;

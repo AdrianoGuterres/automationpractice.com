@@ -11,7 +11,6 @@ import com.aventstack.extentreports.Status;
 
 import guterres.adriano.ressources.AutomaticEmailGeneratorTool;
 import guterres.adriano.ressources.DriverSetup;
-import guterres.adriano.ressources.NavigationTools;
 import guterres.adriano.ressources.Report;
 import guterres.adriano.ressources.ScreenShot;
 import guterres.adriano.tasks.AddFirstProductTask;
@@ -87,8 +86,10 @@ public class ChromeBuyTheFirstProductCorrectlyTestCase {
 
 	@Test
 	public void run () {		
+
+		Report.startTest("(Chrome) Test Case 001: Buy the first product correctly");	
 		
-		this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);		
 
 		Report.log(Status.INFO, "The Homepage has loaded correctly ", ScreenShot.capture(this.driver));
 
@@ -197,14 +198,15 @@ public class ChromeBuyTheFirstProductCorrectlyTestCase {
 		
 		
 		// Falhando
-	    //this.paymentVerificationPoints.verifyProductTitle();
-		//this.paymentVerificationPoints.verifyInStock();
-		//this.paymentVerificationPoints.verifyProductUnitPrice();
-		//this.paymentVerificationPoints.verifyProductQuantity();
-		//this.paymentVerificationPoints.verifyPriceTotalPerProduct();
-		//this.paymentVerificationPoints.verifyPriceTotalAllProducts();
-		//this.paymentVerificationPoints.verifyShippingPrice();
-		//this.paymentVerificationPoints.verifyTotalPriceTotalOrder();
+	    this.paymentVerificationPoints.verifyProductDescription();
+		this.paymentVerificationPoints.verifyInStock();
+		this.paymentVerificationPoints.verifyProductUnitPrice();
+		this.paymentVerificationPoints.verifyProductQuantity();
+		this.paymentVerificationPoints.verifyPriceTotalPerProduct();
+		
+		this.paymentVerificationPoints.verifyPriceTotalAllProducts();
+		this.paymentVerificationPoints.verifyShippingPrice();
+		this.paymentVerificationPoints.verifyTotalPriceTotalOrder();
 		
 		this.paymentTask.clickPayBankWire();
 		
@@ -221,11 +223,17 @@ public class ChromeBuyTheFirstProductCorrectlyTestCase {
 		
 		this.orderTasks.clickBackToOrdersButton();
 		
+		this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
+
+
+
+		Report.log(Status.INFO, "Order history", ScreenShot.capture(this.driver));
+		
 	}
 
 	@After
 	public void teardown() {
-		driver.quit();		
+		this.driver.quit();		
 	}
 
 }

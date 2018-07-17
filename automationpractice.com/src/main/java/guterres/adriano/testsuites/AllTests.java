@@ -1,5 +1,7 @@
 package guterres.adriano.testsuites;
 
+
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
@@ -21,18 +23,15 @@ public class AllTests {
 	@BeforeClass
 	public static void startTests() {
 		
-		System.out.println("The tests were started!");
-		
+		System.out.println("The tests were started!");		
 		Report.create("automationpractice.com", "Test Case");
-		Report.startTest("Test Case 001: Buy the first product correctly");	
 	}
 	
 	
 	@AfterClass
 	public static void endTests() {
 		
-		System.out.println("The tests are over!");
-		
+		System.out.println("The tests are over!");		
 		Report.close();		
 	}
 

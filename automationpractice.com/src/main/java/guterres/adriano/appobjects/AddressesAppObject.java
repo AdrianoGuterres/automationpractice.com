@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import guterres.adriano.ressources.NavigationTools;
+
 public class AddressesAppObject {
 	
 	private WebDriver driver;
@@ -13,31 +15,38 @@ public class AddressesAppObject {
 	}
 	
 	public WebElement getDeliveryAddressCompleteNameField() {
-		return this.driver.findElement(By.xpath("//*[@id=\"address_delivery\"]/li[2]"));
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.xpath("//*[@id=\"address_delivery\"]/li[2]"));
+		return element;
 	}
 	
 	public WebElement getDeliveryAddressCompanyField() {
-		return this.driver.findElement(By.xpath("//*[@id=\"address_delivery\"]/li[3]"));
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.xpath("//*[@id=\"address_delivery\"]/li[3]"));
+		return element;		
 	}
 	
 	public WebElement getDeliveryAddressStreetField() {
-		return this.driver.findElement(By.xpath("//*[@id=\"address_delivery\"]/li[4]"));
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.xpath("//*[@id=\"address_delivery\"]/li[4]"));
+		return element;
 	}
 	
 	public WebElement getDeliveryAddressStateField() {
-		return this.driver.findElement(By.xpath("//*[@id=\"address_delivery\"]/li[5]"));
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.xpath("//*[@id=\"address_delivery\"]/li[5]"));
+		return element;
 	}
 	
 	public WebElement getDeliveryAddressCountryField() {
-		return this.driver.findElement(By.xpath("//*[@id=\"address_delivery\"]/li[6]"));
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.xpath("//*[@id=\"address_delivery\"]/li[6]"));
+		return element;
 	}
 	
 	public WebElement getDeliveryAddressHomePhoneField() {
-		return this.driver.findElement(By.xpath("//*[@id=\"address_delivery\"]/li[7]"));
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.xpath("//*[@id=\"address_delivery\"]/li[7]"));
+		return element;
 	}
 	
 	public WebElement getDeliveryAddressMobilePhoneField() {
-		return this.driver.findElement(By.xpath("//*[@id=\"address_delivery\"]/li[8]"));
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.xpath("//*[@id=\"address_delivery\"]/li[8]"));
+		return element;
 	}
 	
 	
@@ -45,36 +54,45 @@ public class AddressesAppObject {
 	
 	
 	public WebElement getBillingAddressCompleteNameField() {
-		return this.driver.findElement(By.xpath("//*[@id=\"address_invoice\"]/li[2]"));
+		WebElement element = NavigationTools.waitForClickability(this.driver,By.xpath("//*[@id=\"address_invoice\"]/li[2]"));
+		return element;
 	}
 	
 	public WebElement getBillingAddressCompanyField() {
-		return this.driver.findElement(By.xpath("//*[@id=\"address_invoice\"]/li[3]"));
+		WebElement element = NavigationTools.waitForClickability(this.driver,By.xpath("//*[@id=\"address_invoice\"]/li[3]"));
+		return element;
+		
 	}
 	
 	public WebElement getBillingAddressStreetField() {
-		return this.driver.findElement(By.xpath("//*[@id=\"address_invoice\"]/li[4]"));
+		WebElement element = NavigationTools.waitForClickability(this.driver,By.xpath("//*[@id=\"address_invoice\"]/li[4]"));
+		return element;
 	}
 	
 	public WebElement getBillingAddressStateField() {
-		return this.driver.findElement(By.xpath("//*[@id=\"address_invoice\"]/li[5]"));
+		WebElement element = NavigationTools.waitForClickability(this.driver,By.xpath("//*[@id=\"address_invoice\"]/li[5]"));
+		return element;
 	}
 	
 	public WebElement getBillingAddressCountryField() {
-		return this.driver.findElement(By.xpath("//*[@id=\"address_invoice\"]/li[6]"));
+		WebElement element = NavigationTools.waitForClickability(this.driver,By.xpath("//*[@id=\"address_invoice\"]/li[6]"));
+		return element;
 	}
 	
 	public WebElement getBillingAddressHomePhoneField() {
-		return this.driver.findElement(By.xpath("//*[@id=\"address_invoice\"]/li[7]"));
+		WebElement element = NavigationTools.waitForClickability(this.driver,By.xpath("//*[@id=\"address_invoice\"]/li[7]"));
+		return element;
 	}
 	
 	public WebElement getBillingAddressMobilePhoneField() {
-		return this.driver.findElement(By.xpath("//*[@id=\"address_invoice\"]/li[8]"));
+		WebElement element = NavigationTools.waitForClickability(this.driver,By.xpath("//*[@id=\"address_invoice\"]/li[8]"));
+		return element;
 	}
 	
 
-	public WebElement getProceedToCheckoutButton() {
-		return this.driver.findElement(By.xpath("//*[@id=\"center_column\"]/form/p/button/span"));		
+	public WebElement getProceedToCheckoutButton() {	
+		WebElement element = NavigationTools.waitForClickability(this.driver,By.xpath("//*[@id=\"center_column\"]/form/p/button/span"));
+		return element;
 	}
 	
 	

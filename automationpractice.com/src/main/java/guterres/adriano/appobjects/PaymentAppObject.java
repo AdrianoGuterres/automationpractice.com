@@ -1,10 +1,12 @@
 package guterres.adriano.appobjects;
 
+import java.util.ArrayList;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
+import guterres.adriano.ressources.NavigationTools;
 
 public class PaymentAppObject {
 
@@ -13,57 +15,75 @@ public class PaymentAppObject {
 	public PaymentAppObject(WebDriver driver) {
 		this.driver = driver;		
 	}
-
+	
 	public WebElement getProductNameField() {
-		WebElement element = driver.findElement(By.className("product-name")); 
 
-		return element; 
+		WebElement table = this.driver.findElement(By.cssSelector("#cart_summary > tbody"));	
+
+		ArrayList<WebElement> td = new ArrayList<WebElement>();
+		td.addAll( table.findElements(By.cssSelector("td")));	
+
+		return td.get(1);
 	}	
 
 	public WebElement getInStockField() {
+		WebElement table = this.driver.findElement(By.cssSelector("#cart_summary > tbody"));	
 
-		WebElement element = new WebDriverWait(this.driver, 10).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"product_1_1_0_82569\"]/td[3]/span")));
+		ArrayList<WebElement> td = new ArrayList<WebElement>();
+		td.addAll( table.findElements(By.cssSelector("td")));	
 
-		return element;
+		return td.get(2);
 	}
 
 	public WebElement getUnitPriceField() {
-		WebElement aux = driver.findElement(By.xpath("//*[@id=\"product_price_1_1_82071\"]/span"));
-		return aux;
+		WebElement table = this.driver.findElement(By.cssSelector("#cart_summary > tbody"));	
+
+		ArrayList<WebElement> td = new ArrayList<WebElement>();
+		td.addAll( table.findElements(By.cssSelector("td")));		
+		
+		return td.get(3);
 	}	
 
 
 	public WebElement getQuantityImput() {
-		WebElement aux = driver.findElement(By.xpath("//*[@id=\"product_1_1_0_82071\"]/td[5]/span"));
-		return aux;		
+		WebElement table = this.driver.findElement(By.cssSelector("#cart_summary > tbody"));	
+
+		ArrayList<WebElement> td = new ArrayList<WebElement>();
+		td.addAll( table.findElements(By.cssSelector("td")));		
+
+		return td.get(4);
 	}	
 
 
 	public WebElement getPriceTotaPerProductlField() {
-		WebElement aux = driver.findElement(By.id("total_product_price_1_1_82071"));
-		return aux;
-	}
+		WebElement table = this.driver.findElement(By.cssSelector("#cart_summary > tbody"));	
+
+		ArrayList<WebElement> td = new ArrayList<WebElement>();
+		td.addAll( table.findElements(By.cssSelector("td")));		
+
+		return td.get(5);
+	}		
 
 	public WebElement getTotalPriceAllProductField() {		
-		WebElement aux = driver.findElement(By.id("total_product"));
-		return aux;
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.id("total_product"));		
+		return element;
 	}
 
 
 	public WebElement getTotalShipingField() {
-		WebElement element = driver.findElement(By.id("total_shipping"));
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.id("total_shipping"));
 		return element;
 	}	
 
 
 	public WebElement getTotalPriceOrderField() {
-		WebElement aux = driver.findElement(By.id("total_price"));
-		return aux;		
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.id("total_price"));
+		return element;
 	}
 
 
 	public WebElement getPayByBankWireButton() {
-		WebElement element = new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(By.className("payment_module")));
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.className("payment_module"));
 		return element;
 	}		
 

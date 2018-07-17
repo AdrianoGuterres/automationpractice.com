@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import guterres.adriano.ressources.NavigationTools;
+
 public class OrderAppObject {
 	private WebDriver driver;
 	
@@ -12,19 +14,23 @@ public class OrderAppObject {
 	}
 	
 	public WebElement getOrderStatusField() {
-		return this.driver.findElement(By.xpath("//*[@id=\"center_column\"]/div/p/strong"));
+		WebElement element = NavigationTools.waitForClickability(this.driver,By.xpath("//*[@id=\"center_column\"]/div/p/strong"));
+		return element;
 	}
 	
 	public WebElement getAmountField() {
-		return this.driver.findElement(By.xpath("//*[@id=\"center_column\"]/div/span/strong"));
+		WebElement element = NavigationTools.waitForClickability(this.driver,By.xpath("//*[@id=\"center_column\"]/div/span/strong"));
+		return element;
 	}
 	
 	public WebElement getNameAccountOnnerField() {
-		return this.driver.findElement(By.xpath("//*[@id=\"center_column\"]/div/strong[1]"));
+		WebElement element = NavigationTools.waitForClickability(this.driver,By.xpath("//*[@id=\"center_column\"]/div/strong[1]"));
+		return element;
 	}
 	
 	public WebElement getBackToOrdersButton() {
-		return this.driver.findElement(By.xpath("//*[@id=\"center_column\"]/p/a"));
+		WebElement element = NavigationTools.waitForClickability(this.driver,By.xpath("//*[@id=\"center_column\"]/p/a"));
+		return element;
 	}
 
 }

@@ -20,43 +20,38 @@ public class AddFirstProductAppObject {
 	public WebElement getAddToCartFirstProductButton() {
 
 		NavigationTools.moveToElementByXpath(driver, "//*[@id=\"homefeatured\"]/li[1]");
-
-		WebElement element = driver.findElement(By.xpath("//*[@id=\"homefeatured\"]/li[1]/div/div[2]/div[2]/a[1]"));	
-
+		
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.xpath("//*[@id=\"homefeatured\"]/li[1]/div/div[2]/div[2]/a[1]"));
 		return element;
 	}
 
 	public WebElement getProceedToCheckoutButton() {
-
-		new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[1]/header/div[3]/div/div/div[4]/div[1]/div[2]/div[4]/a/span")));
-
-		WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div[1]/header/div[3]/div/div/div[4]/div[1]/div[2]/div[4]/a/span"));
-
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.xpath("/html/body/div[1]/div[1]/header/div[3]/div/div/div[4]/div[1]/div[2]/div[4]/a/span"));
 		return element;
 	}	
 	
 	public WebElement getProductTitleLabel() {
-		WebElement element = driver.findElement(By.id("layer_cart_product_title"));
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.id("layer_cart_product_title"));			
 		return element;				
 	}
 	
 	public WebElement getProductQuantityLabel() {
-		WebElement element = driver.findElement(By.id("layer_cart_product_quantity"));
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.id("layer_cart_product_quantity"));
 		return element;				
 	}
 	
-	public WebElement getTotalProductsLabel() {
-		WebElement element = driver.findElement(By.xpath("/html/body/div/div[1]/header/div[3]/div/div/div[4]/div[1]/div[2]/div[1]/span"));
+	public WebElement getTotalProductsLabel() {		
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.xpath("/html/body/div/div[1]/header/div[3]/div/div/div[4]/div[1]/div[2]/div[1]/span"));
 		return element;				
 	}
 	
 	public WebElement getTotalShippingLabel() {
-		WebElement element = driver.findElement(By.xpath("/html/body/div/div[1]/header/div[3]/div/div/div[4]/div[1]/div[2]/div[2]/span"));
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.xpath("/html/body/div/div[1]/header/div[3]/div/div/div[4]/div[1]/div[2]/div[2]/span"));
 		return element;				
 	}
 	
 	public WebElement getTotalLabel() {
-		WebElement element = driver.findElement(By.xpath("/html/body/div/div[1]/header/div[3]/div/div/div[4]/div[1]/div[2]/div[3]/span"));
+		WebElement element = NavigationTools.waitForClickability(this.driver, By.xpath("/html/body/div/div[1]/header/div[3]/div/div/div[4]/div[1]/div[2]/div[3]/span"));
 		return element;				
 	}
 

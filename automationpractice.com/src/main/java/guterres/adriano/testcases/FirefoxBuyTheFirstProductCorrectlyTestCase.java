@@ -11,7 +11,6 @@ import com.aventstack.extentreports.Status;
 
 import guterres.adriano.ressources.AutomaticEmailGeneratorTool;
 import guterres.adriano.ressources.DriverSetup;
-import guterres.adriano.ressources.NavigationTools;
 import guterres.adriano.ressources.Report;
 import guterres.adriano.ressources.ScreenShot;
 import guterres.adriano.tasks.AddFirstProductTask;
@@ -58,7 +57,7 @@ public class FirefoxBuyTheFirstProductCorrectlyTestCase {
 	private BankWirePaymentVerificationPoints    bankWirePaymentVerificationPoints;
 	private OrderVerificationPoints              orderVerificationPoints;
 
-	@Before 
+	@Before
 	public void setup() {	
 
 		this.driver = DriverSetup.getDriverConfiguredForFirefox("http://automationpractice.com/index.php");
@@ -86,9 +85,11 @@ public class FirefoxBuyTheFirstProductCorrectlyTestCase {
 	}
 
 	@Test
-	public void run () {					
+	public void run () {		
 
-		this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Report.startTest("(Firefox) Test Case 001: Buy the first product correctly");	
+		
+		this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);		
 
 		Report.log(Status.INFO, "The Homepage has loaded correctly ", ScreenShot.capture(this.driver));
 
@@ -195,15 +196,17 @@ public class FirefoxBuyTheFirstProductCorrectlyTestCase {
 		
 		//-------------------------------------------------------------------------------------------------
 		
-		//Falhando
-	    //this.paymentVerificationPoints.verifyProductTitle();
-		//this.paymentVerificationPoints.verifyInStock();
-		//this.paymentVerificationPoints.verifyProductUnitPrice();
-		//this.paymentVerificationPoints.verifyProductQuantity();
-		//this.paymentVerificationPoints.verifyPriceTotalPerProduct();
-		//this.paymentVerificationPoints.verifyPriceTotalAllProducts();
-		//this.paymentVerificationPoints.verifyShippingPrice();
-		//this.paymentVerificationPoints.verifyTotalPriceTotalOrder();
+		
+		// Falhando
+	    this.paymentVerificationPoints.verifyProductDescription();
+		this.paymentVerificationPoints.verifyInStock();
+		this.paymentVerificationPoints.verifyProductUnitPrice();
+		this.paymentVerificationPoints.verifyProductQuantity();
+		this.paymentVerificationPoints.verifyPriceTotalPerProduct();
+		
+		this.paymentVerificationPoints.verifyPriceTotalAllProducts();
+		this.paymentVerificationPoints.verifyShippingPrice();
+		this.paymentVerificationPoints.verifyTotalPriceTotalOrder();
 		
 		this.paymentTask.clickPayBankWire();
 		
@@ -218,13 +221,19 @@ public class FirefoxBuyTheFirstProductCorrectlyTestCase {
 		this.orderVerificationPoints.verifyOrderAmount();
 		this.orderVerificationPoints.verifyOrderStatus();
 		
-		this.orderTasks.clickBackToOrdersButton();		
+		this.orderTasks.clickBackToOrdersButton();
+		
+		this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
+
+
+
+		Report.log(Status.INFO, "Order history", ScreenShot.capture(this.driver));
 		
 	}
 
 	@After
 	public void teardown() {
-		driver.quit();		
+		this.driver.quit();		
 	}
 
 }
