@@ -11,7 +11,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 
-public class Report {
+public class Report { 
 	private static final String DEFAULT_DESCRIPTION = "Test DBServer";
 	private static final String DEFAULT_PATH = "./reports/report_%s.html";
 	private static ExtentReports exReport;

@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.Status;
 
-public class ScreenShot {
+public class ScreenShot { 
 	public static String capture(WebDriver driver) {
 		File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		String path = "./reports/screenshots/" + source.getName();

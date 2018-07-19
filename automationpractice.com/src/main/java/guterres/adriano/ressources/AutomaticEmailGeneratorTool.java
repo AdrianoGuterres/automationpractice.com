@@ -2,7 +2,7 @@ package guterres.adriano.ressources;
 
 import java.util.Random;
 
-public class AutomaticEmailGeneratorTool {
+public class AutomaticEmailGeneratorTool { 
 
 	public static String gerarEmail() {
 

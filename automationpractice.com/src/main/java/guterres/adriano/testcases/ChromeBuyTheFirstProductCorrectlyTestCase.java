@@ -31,7 +31,7 @@ import guterres.adriano.verificationpoints.ShippingVerificationPoints;
 import guterres.adriano.verificationpoints.ShoppingCartVerificationPoints;
 
 
-public class ChromeBuyTheFirstProductCorrectlyTestCase {
+public class ChromeBuyTheFirstProductCorrectlyTestCase { 
 	private WebDriver driver;
 
 	private AddFirstProductTask      addFirstProductTask;

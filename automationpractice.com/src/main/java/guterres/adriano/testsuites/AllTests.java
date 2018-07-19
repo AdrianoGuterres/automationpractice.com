@@ -15,8 +15,6 @@ import guterres.adriano.testcases.FirefoxBuyTheFirstProductCorrectlyTestCase;
 	FirefoxBuyTheFirstProductCorrectlyTestCase.class
 	})
 public class AllTests {
-
-
 	@BeforeClass
 	public static void startTests() {
 
