@@ -1,14 +1,11 @@
 package guterres.adriano.tasks;
 
-import java.awt.RenderingHints.Key;
-
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import guterres.adriano.appobjects.CreateAccountAppObject;
-import guterres.adriano.ressources.NavigationTools;
 
 public class CreateAccountFormTask {
 	private CreateAccountAppObject form;
