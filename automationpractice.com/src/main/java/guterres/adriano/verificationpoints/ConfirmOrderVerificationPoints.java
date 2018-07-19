@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import com.aventstack.extentreports.Status;
 
 import guterres.adriano.appobjects.ConfirmOrderAppObject;
+import guterres.adriano.ressources.NavigationTools;
 import guterres.adriano.ressources.Report;
 import guterres.adriano.ressources.ScreenShot;
 
@@ -30,14 +31,18 @@ public class ConfirmOrderVerificationPoints {
 	public boolean verifyPaymentType() {
 		boolean aux = false;
 		
-		WebElement nameOfProduct = this.confirmOrderAppObject.getTipePaymentField();
+		WebElement element = this.confirmOrderAppObject.getTipePaymentField();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
-		if(nameOfProduct.getText().equalsIgnoreCase(this.PAYMENT_TYPE)) {
+		if(element.getText().equalsIgnoreCase(this.PAYMENT_TYPE)) {
 			Report.log(Status.PASS, "Payment Type field is correct.", ScreenShot.capture(this.driver));
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "Payment Type field isn't correct.", ScreenShot.capture(this.driver));			
 		}
+		
+		NavigationTools.highLightElement(this.driver, element);
 				
 		return aux;
 	}	

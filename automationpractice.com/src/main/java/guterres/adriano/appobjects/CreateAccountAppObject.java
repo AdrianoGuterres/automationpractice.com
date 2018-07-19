@@ -17,7 +17,9 @@ public class CreateAccountAppObject {
 	}	
 
 	public WebElement getCustomerTitleMrRadioButton() {
-		WebElement element = new WebDriverWait(this.driver, 10).until(ExpectedConditions.elementToBeClickable(By.id("id_gender1")));
+	//	WebElement element = new WebDriverWait(this.driver, 10).until(ExpectedConditions.elementToBeClickable(By.id("id_gender1")));
+		
+		WebElement element = NavigationTools.waitForClickability(this.driver, (By.id("id_gender1")));
 		return element;	
 	}
 
@@ -48,19 +50,16 @@ public class CreateAccountAppObject {
 	}
 
 	public WebElement getCustomerDayDateBirthComboBox() {
-		NavigationTools.waitForClickability(this.driver, By.id("passwd"));
 		WebElement element = this.driver.findElement(By.id("days"));		
 		return element;	
 	}
 
 	public WebElement getCustomerMonthDateBirthComboBox() {
-		NavigationTools.waitForClickability(this.driver, By.id("passwd"));
 		WebElement element = this.driver.findElement(By.id("months"));	
 		return element;	
 	}
 
 	public WebElement getCustomerYearMonthDateBirthComboBox() {
-		NavigationTools.waitForClickability(this.driver, By.id("passwd"));
 		WebElement element =this.driver.findElement(By.id("years"));		
 		return element;	
 	}

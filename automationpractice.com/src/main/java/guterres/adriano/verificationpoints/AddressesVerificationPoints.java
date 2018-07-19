@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import com.aventstack.extentreports.Status;
 
 import guterres.adriano.appobjects.AddressesAppObject;
+import guterres.adriano.ressources.NavigationTools;
 import guterres.adriano.ressources.Report;
 import guterres.adriano.ressources.ScreenShot;
 
@@ -60,6 +61,8 @@ public class AddressesVerificationPoints {
 		boolean aux = false;
 
 		WebElement element = this.confirmInformationsAppObject.getDeliveryAddressCompleteNameField();		
+		
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.getText().equalsIgnoreCase(this.DELIVERY_ADDRESS_COMPLETE_NAME)) {			
 			Report.log(Status.PASS,"The field with complete name was filled in correctly", ScreenShot.capture(this.driver));		
@@ -67,6 +70,8 @@ public class AddressesVerificationPoints {
 		}else {
 			Report.log(Status.FAIL,"The field with complete name wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 	}
@@ -76,6 +81,8 @@ public class AddressesVerificationPoints {
 		boolean aux = false;
 
 		WebElement element = this.confirmInformationsAppObject.getDeliveryAddressCompanyField();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.getText().equalsIgnoreCase(this.DELIVERY_ADDRESS_COMPANY)) {			
 			Report.log(Status.PASS,"The field with company in Delivery Address was filled in correctly", ScreenShot.capture(this.driver));		
@@ -83,6 +90,8 @@ public class AddressesVerificationPoints {
 		}else {
 			Report.log(Status.FAIL,"The field with company in Delivery Address wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 	}
@@ -91,6 +100,8 @@ public class AddressesVerificationPoints {
 		boolean aux = false;
 
 		WebElement element = this.confirmInformationsAppObject.getDeliveryAddressStreetField();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.getText().equalsIgnoreCase(this.DELIVERY_ADDRESS_STREET)) {			
 			Report.log(Status.PASS,"The field with street in Delivery Address was filled in correctly", ScreenShot.capture(this.driver));		
@@ -98,6 +109,8 @@ public class AddressesVerificationPoints {
 		}else {
 			Report.log(Status.FAIL,"The field with street in Delivery Address wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 	}
@@ -107,6 +120,8 @@ public class AddressesVerificationPoints {
 		boolean aux = false;
 
 		WebElement element = this.confirmInformationsAppObject.getDeliveryAddressStateField();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.getText().equalsIgnoreCase(this.DELIVERY_ADDRESS_STATE)) {			
 			Report.log(Status.PASS,"The field with State in Delivery Address was filled in correctly", ScreenShot.capture(this.driver));		
@@ -114,6 +129,8 @@ public class AddressesVerificationPoints {
 		}else {
 			Report.log(Status.FAIL,"The field with State in Delivery Address wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 	}
@@ -123,6 +140,8 @@ public class AddressesVerificationPoints {
 		boolean aux = false;
 
 		WebElement element = this.confirmInformationsAppObject.getDeliveryAddressCountryField();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.getText().equalsIgnoreCase(this.DELIVERY_ADDRESS_COUNTRY)) {			
 			Report.log(Status.PASS,"The field with Country in Delivery Address was filled in correctly", ScreenShot.capture(this.driver));		
@@ -130,6 +149,8 @@ public class AddressesVerificationPoints {
 		}else {
 			Report.log(Status.FAIL,"The field with Country in Delivery Address wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 	}
@@ -139,6 +160,8 @@ public class AddressesVerificationPoints {
 		boolean aux = false;
 
 		WebElement element = this.confirmInformationsAppObject.getDeliveryAddressHomePhoneField();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.getText().equalsIgnoreCase(this.DELIVERY_ADDRESS_HOME_PHONE)) {			
 			Report.log(Status.PASS,"The field with Home phone in Delivery Address was filled in correctly", ScreenShot.capture(this.driver));		
@@ -146,6 +169,8 @@ public class AddressesVerificationPoints {
 		}else {
 			Report.log(Status.FAIL,"The field with Home phone in Delivery Address wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 	}
@@ -155,6 +180,8 @@ public class AddressesVerificationPoints {
 		boolean aux = false;
 
 		WebElement element = this.confirmInformationsAppObject.getDeliveryAddressMobilePhoneField();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.getText().equalsIgnoreCase(this.DELIVERY_ADDRESS_MOBILE_PHONE)) {			
 			Report.log(Status.PASS,"The field with Mobile phone in Delivery Address was filled in correctly", ScreenShot.capture(this.driver));		
@@ -162,6 +189,8 @@ public class AddressesVerificationPoints {
 		}else {
 			Report.log(Status.FAIL,"The field with Mobile phone in Delivery Address wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 	}
@@ -171,6 +200,8 @@ public class AddressesVerificationPoints {
 		boolean aux = false;
 
 		WebElement element = this.confirmInformationsAppObject.getBillingAddressCompleteNameField();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.getText().equalsIgnoreCase(this.BILLING_ADDRESS_COMPLETE_NAME)) {			
 			Report.log(Status.PASS,"The field with complete name in Billing Address was filled in correctly", ScreenShot.capture(this.driver));		
@@ -178,6 +209,8 @@ public class AddressesVerificationPoints {
 		}else {
 			Report.log(Status.FAIL,"The field with complete name in Billing Address wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 	}
@@ -187,6 +220,8 @@ public class AddressesVerificationPoints {
 		boolean aux = false;
 
 		WebElement element = this.confirmInformationsAppObject.getBillingAddressCompanyField();
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		if(element.getText().equalsIgnoreCase(this.BILLING_ADDRESS_COMPANY)) {			
 			Report.log(Status.PASS,"The field with company in Billing Address was filled in correctly", ScreenShot.capture(this.driver));		
@@ -202,6 +237,8 @@ public class AddressesVerificationPoints {
 		boolean aux = false;
 
 		WebElement element = this.confirmInformationsAppObject.getBillingAddressStreetField();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.getText().equalsIgnoreCase(this.BILLING_ADDRESS_STREET)) {			
 			Report.log(Status.PASS,"The field with street in Billing Address was filled in correctly", ScreenShot.capture(this.driver));		
@@ -209,6 +246,8 @@ public class AddressesVerificationPoints {
 		}else {
 			Report.log(Status.FAIL,"The field with street in Billing Address wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 	}
@@ -218,6 +257,8 @@ public class AddressesVerificationPoints {
 		boolean aux = false;
 
 		WebElement element = this.confirmInformationsAppObject.getBillingAddressStateField();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.getText().equalsIgnoreCase(this.BILLING_ADDRESS_STATE)) {			
 			Report.log(Status.PASS,"The field with State in Billing Address was filled in correctly", ScreenShot.capture(this.driver));		
@@ -225,6 +266,8 @@ public class AddressesVerificationPoints {
 		}else {
 			Report.log(Status.FAIL,"The field with State in Billing Address wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 	}
@@ -234,6 +277,8 @@ public class AddressesVerificationPoints {
 		boolean aux = false;
 
 		WebElement element = this.confirmInformationsAppObject.getBillingAddressCountryField();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.getText().equalsIgnoreCase(this.BILLING_ADDRESS_COUNTRY)) {			
 			Report.log(Status.PASS,"The field with Country in Billing Address was filled in correctly", ScreenShot.capture(this.driver));		
@@ -241,6 +286,8 @@ public class AddressesVerificationPoints {
 		}else {
 			Report.log(Status.FAIL,"The field with Country in Billing Address wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 	}
@@ -250,6 +297,8 @@ public class AddressesVerificationPoints {
 		boolean aux = false;
 
 		WebElement element = this.confirmInformationsAppObject.getBillingAddressHomePhoneField();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.getText().equalsIgnoreCase(this.BILLING_ADDRESS_HOME_PHONE)) {			
 			Report.log(Status.PASS,"The field with Home phone in Billing Address was filled in correctly", ScreenShot.capture(this.driver));		
@@ -257,6 +306,8 @@ public class AddressesVerificationPoints {
 		}else {
 			Report.log(Status.FAIL,"The field with Home phone in Billing Address wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 	}
@@ -266,6 +317,8 @@ public class AddressesVerificationPoints {
 		boolean aux = false;
 
 		WebElement element = this.confirmInformationsAppObject.getBillingAddressMobilePhoneField();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.getText().equalsIgnoreCase(this.BILLING_ADDRESS_MOBILE_PHONE)) {			
 			Report.log(Status.PASS,"The field with Mobile phone in Billing Address was filled in correctly", ScreenShot.capture(this.driver));		
@@ -273,6 +326,8 @@ public class AddressesVerificationPoints {
 		}else {
 			Report.log(Status.FAIL,"The field with Mobile phone in Billing Address wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 	}

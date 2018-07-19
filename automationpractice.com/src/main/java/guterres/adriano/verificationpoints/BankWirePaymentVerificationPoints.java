@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import com.aventstack.extentreports.Status;
 
 import guterres.adriano.appobjects.BankWirePaymentAppObject;
+import guterres.adriano.ressources.NavigationTools;
 import guterres.adriano.ressources.Report;
 import guterres.adriano.ressources.ScreenShot;
 
@@ -28,6 +29,8 @@ public class BankWirePaymentVerificationPoints {
 		boolean aux = false;
 
 		WebElement element = this.bankWirePaymentAppObject.getMethodPaymentLabel();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.getText().equalsIgnoreCase(this.PAYMENT_METHOD)) {
 			Report.log(Status.PASS, "The payment is correct.", ScreenShot.capture(this.driver));
@@ -35,6 +38,8 @@ public class BankWirePaymentVerificationPoints {
 		}else {
 			Report.log(Status.FAIL, "The payment isn't correct.", ScreenShot.capture(this.driver));			
 		}
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 

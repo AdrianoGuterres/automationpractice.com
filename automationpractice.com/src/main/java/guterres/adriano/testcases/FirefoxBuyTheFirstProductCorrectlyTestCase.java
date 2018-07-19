@@ -129,7 +129,7 @@ public class FirefoxBuyTheFirstProductCorrectlyTestCase {
 
 		//----------------------------------------------------------------
 		
-		this.createAccountFormTask.fillFormYourPersonalInformation(true, "José", "Silva", "999888", "10", "March", "1993", true, true);		
+		this.createAccountFormTask.fillFormYourPersonalInformation(true, "José", "Silva", "999888", "10", "M", "1993", true, true);		
 		
 		this.createAccountFormTask.fillFormYourAddress("JoseSilvaLTDA", "Nonsense Street", "building", "Iowa City", "Iowa", "55555", 
 												  "United States", "Slipknot's city.", "319-5555-5555", "319-9999-5555", "Mi casa");

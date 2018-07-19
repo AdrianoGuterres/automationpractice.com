@@ -1,9 +1,14 @@
 package guterres.adriano.tasks;
 
+import java.awt.RenderingHints.Key;
+
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import guterres.adriano.appobjects.CreateAccountAppObject;
+import guterres.adriano.ressources.NavigationTools;
 
 public class CreateAccountFormTask {
 	private CreateAccountAppObject form;
@@ -25,10 +30,31 @@ public class CreateAccountFormTask {
 		
 		this.form.getCustomerFirstNameTextField().sendKeys(firstName);		
 		this.form.getCustomerLastNameTextField().sendKeys(lastName);
-		this.form.getCustomerPasswordTextField().sendKeys(password);				
-		this.form.getCustomerDayDateBirthComboBox().sendKeys(dayBirthday);		
-		this.form.getCustomerMonthDateBirthComboBox().sendKeys(monthBirthday);		
-		this.form.getCustomerYearMonthDateBirthComboBox().sendKeys(yearBirthday);
+		this.form.getCustomerPasswordTextField().sendKeys(password);	
+		
+		
+		WebElement dayBox = this.form.getCustomerDayDateBirthComboBox();			
+		int dayInteger = Integer.parseInt(dayBirthday);		
+		for(int i = 0; i<dayInteger; i++) {
+			dayBox.sendKeys(Keys.ARROW_DOWN);		
+		}		
+		dayBox.sendKeys(Keys.ENTER);
+		
+		
+		WebElement monthBox = this.form.getCustomerMonthDateBirthComboBox();				
+		monthBox.sendKeys(monthBirthday);		
+		
+		
+		WebElement yearBox = this.form.getCustomerYearMonthDateBirthComboBox();		
+		int yearInteger =( Integer.parseInt(yearBirthday)-2018) *-1;		
+
+		for(int i = 0; i<=yearInteger; i++) {
+			yearBox.sendKeys(Keys.ARROW_DOWN);		
+			yearBox.sendKeys(Keys.ENTER);
+		}		
+		yearBox.sendKeys(Keys.ENTER);
+		
+		
 		
 		if(newsletter) {
 			this.form.getCustomerSignNewsletterCheckBox().click();			
@@ -48,10 +74,12 @@ public class CreateAccountFormTask {
 		this.form.getAddressCityTextField().sendKeys(city);		
 		this.form.getAddressPostalCodeTextField().sendKeys(postalCode);
 		
-		Select selectCountry = new Select(this.form.getAddressCountryComboBox());		
+		WebElement countryBox = this.form.getAddressCountryComboBox();
+		Select selectCountry = new Select(countryBox);		
 		selectCountry.selectByVisibleText(country);
 		
-		Select selectState = new Select(this.form.getAddressStateComboBox());		
+		WebElement stateBox = this.form.getAddressStateComboBox();
+		Select selectState = new Select(stateBox);		
 		selectState.selectByVisibleText(state);
 		
 		this.form.getAddressAdditionalInfoTextArea().sendKeys(additionalInfo);

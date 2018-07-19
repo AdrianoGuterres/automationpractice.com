@@ -34,19 +34,22 @@ public class ShippingVerificationPoints {
 		
 		WebElement element = this.confirmShippingAppObject.getAliasAddress();
 		
+		NavigationTools.highLightElement(this.driver, element);
+		
 		if(element.getText().equalsIgnoreCase(this.ALIAS_ADDRESS)) {
 			Report.log(Status.PASS,"The field with Alias Address was filled in correctly", ScreenShot.capture(this.driver));		
 			aux = true;			
 		}else {
 			Report.log(Status.FAIL,"The field with Alias Address wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}		
+		
+		NavigationTools.endHighLightElement(this.driver, element);
+		
 		return aux;		
 	}	
 	
 	public boolean verifyDeliveryChooise() {
 		boolean aux = false;
-		
-		NavigationTools.moveToElementByXpath(driver, "//*[@id=\"form\"]");
 		
 		WebElement element = this.confirmShippingAppObject.getChooiseDeliveryRadioButton();
 		
@@ -65,12 +68,16 @@ public class ShippingVerificationPoints {
 		
 		WebElement element = this.confirmShippingAppObject.getPriceShippingField();
 		
+		NavigationTools.highLightElement(this.driver, element);
+		
 		if(element.getText().equalsIgnoreCase(this.PRICE_SHIPPING)) {
 			Report.log(Status.PASS,"The field with price shipping was filled in correctly", ScreenShot.capture(this.driver));		
 			aux = true;			
 		}else {
 			Report.log(Status.FAIL,"The field with price shipping wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}		
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 		return aux;		
 	}
 	

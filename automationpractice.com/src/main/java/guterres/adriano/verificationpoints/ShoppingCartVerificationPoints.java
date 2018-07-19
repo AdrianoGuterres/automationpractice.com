@@ -46,14 +46,19 @@ public class ShoppingCartVerificationPoints {
 	public boolean verifyProductTitle() {
 		boolean aux = false;
 		
-		WebElement nameOfProduct = this.shoppingCartAppObjects.getProductTitleLabel();
+		WebElement element = this.shoppingCartAppObjects.getProductTitleLabel();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
-		if(nameOfProduct.getText().equalsIgnoreCase(this.PRODUCT_TITLE)) {
+		if(element.getText().equalsIgnoreCase(this.PRODUCT_TITLE)) {
 			Report.log(Status.PASS, "Name of product ok.", ScreenShot.capture(this.driver));
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The name of product isn't ok.", ScreenShot.capture(this.driver));			
 		}		
+		
+		NavigationTools.endHighLightElement(this.driver, element);
+		
 		return aux;		
 	}
 	
@@ -61,14 +66,19 @@ public class ShoppingCartVerificationPoints {
 	public boolean verifyInStock() {
 		boolean aux = false;
 		
-		WebElement nameOfProduct0 = this.shoppingCartAppObjects.getInStockField();
+		WebElement element = this.shoppingCartAppObjects.getInStockField();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
-		if(nameOfProduct0.getText().equalsIgnoreCase(this.PRODUCT_IN_STOCK)) {
+		if(element.getText().equalsIgnoreCase(this.PRODUCT_IN_STOCK)) {
 			Report.log(Status.PASS, "The product it isn in stock.", ScreenShot.capture(this.driver));
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The product it isn't in stock ok.", ScreenShot.capture(this.driver));			
 		}		
+		
+		NavigationTools.endHighLightElement(this.driver, element);
+		
 		return aux;
 	}	
 	
@@ -76,28 +86,38 @@ public class ShoppingCartVerificationPoints {
 	public boolean verifyProductUnitPrice() {
 		boolean aux = false;
 		
-		WebElement priceOfProduct0 = this.shoppingCartAppObjects.getUnitPriceField();
+		WebElement element = this.shoppingCartAppObjects.getUnitPriceField();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
-		if(priceOfProduct0.getText().equalsIgnoreCase(PRODUCT_UNIT_PRICE)) {
+		if(element.getText().equalsIgnoreCase(PRODUCT_UNIT_PRICE)) {
 			Report.log(Status.PASS, "The product price is corect.", ScreenShot.capture(this.driver));
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The product price isn't corect.", ScreenShot.capture(this.driver));			
 		}		
+		
+		NavigationTools.endHighLightElement(this.driver, element);
+		
 		return aux;
 	}
 	
 	public boolean verifyProductQuantity() {
 		boolean aux = false;
 		
-		WebElement quantityProduct = shoppingCartAppObjects.getQuantityField();
+		WebElement element = shoppingCartAppObjects.getQuantityField();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
-		if(quantityProduct.getAttribute("value").equalsIgnoreCase(this.PRODUCT_QUANTITY)) {
+		if(element.getAttribute("value").equalsIgnoreCase(this.PRODUCT_QUANTITY)) {
 			Report.log(Status.PASS, "The quantity is corect.", ScreenShot.capture(this.driver));
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The quantity isn't corect.", ScreenShot.capture(this.driver));			
 		}		
+		
+		NavigationTools.endHighLightElement(this.driver, element);
+		
 		return aux;
 	}
 	
@@ -105,83 +125,112 @@ public class ShoppingCartVerificationPoints {
 	public boolean verifyTotalPricePerProducts() {
 		boolean aux = false;
 		
-		WebElement totalPriceProducts = this.shoppingCartAppObjects.getTotalPricePerProductField();
+		WebElement element = this.shoppingCartAppObjects.getTotalPricePerProductField();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
-		if(totalPriceProducts.getText().equalsIgnoreCase(this.PRODUCT_TOTAL_PRICE_PER_PRODUCT)) {
+		if(element.getText().equalsIgnoreCase(this.PRODUCT_TOTAL_PRICE_PER_PRODUCT)) {
 			Report.log(Status.PASS, "The total price per product is correct.", ScreenShot.capture(this.driver));
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The total price per product isn't corect.", ScreenShot.capture(this.driver));			
-		}		
+		}	
+		
+		NavigationTools.endHighLightElement(this.driver, element);
+		
 		return aux;
 	}
 	
 	public boolean verifyPriceTotalAllProduct() {
 		boolean aux = false;
 		
-		WebElement totalPriceProduct = this.shoppingCartAppObjects.getTotalPriceAllProductField();
+		WebElement element = this.shoppingCartAppObjects.getTotalPriceAllProductField();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
-		if(totalPriceProduct.getText().equalsIgnoreCase(this.PRODUCT_TOTAL_PRICE_ALL_PRODUCT)) {
+		if(element.getText().equalsIgnoreCase(this.PRODUCT_TOTAL_PRICE_ALL_PRODUCT)) {
 			Report.log(Status.PASS, "the total price for all products is correct.", ScreenShot.capture(this.driver));
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "the total price for all products isn't corect.", ScreenShot.capture(this.driver));			
 		}		
+		
+		NavigationTools.endHighLightElement(this.driver, element);
+		
 		return aux;		
 	}	
 	
 	public boolean verifyShipingPrice() {
 		boolean aux = false;
 		
-		WebElement TotalShipingLabel = this.shoppingCartAppObjects.getTotalShipingField();
+		WebElement element = this.shoppingCartAppObjects.getTotalShipingField();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
-		if(TotalShipingLabel.getText().equalsIgnoreCase(this.PRODUCT_SHIPPING_PRICE)) {
+		if(element.getText().equalsIgnoreCase(this.PRODUCT_SHIPPING_PRICE)) {
 			Report.log(Status.PASS, "The shiping price is corect.", ScreenShot.capture(this.driver));
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The shiping price isn't corect.", ScreenShot.capture(this.driver));			
 		}				
+		
+		NavigationTools.endHighLightElement(this.driver, element);
+		
 		return aux;
 	}	
 	
 	public boolean verifyTotalPriceWithoutTax() {
 		boolean aux = false;
 		
-		WebElement TotalPriceWhithoutTaxLabel = this.shoppingCartAppObjects.getTotalPriceWhithoutTaxField();
+		WebElement element = this.shoppingCartAppObjects.getTotalPriceWhithoutTaxField();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
-		if(TotalPriceWhithoutTaxLabel.getText().equalsIgnoreCase(this.PRODUCT_TOTAL_PRICE_WITHOUT_TAX)) {
+		if(element.getText().equalsIgnoreCase(this.PRODUCT_TOTAL_PRICE_WITHOUT_TAX)) {
 			Report.log(Status.PASS, "The total price without tax is corect.", ScreenShot.capture(this.driver));
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The total price without tax isn't corect.", ScreenShot.capture(this.driver));			
 		}			
+		
+		NavigationTools.endHighLightElement(this.driver, element);
+		
 		return aux;
 	}
 	
 	public boolean verifyTotalTax() {
 		boolean aux = false;
 		
-		WebElement TotalTaxLabel = this.shoppingCartAppObjects.getTotalTaxField();
+		WebElement element = this.shoppingCartAppObjects.getTotalTaxField();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
-		if(TotalTaxLabel.getText().equalsIgnoreCase(this.PRODUCT_TOTAL_TAX)) {
+		if(element.getText().equalsIgnoreCase(this.PRODUCT_TOTAL_TAX)) {
 			Report.log(Status.PASS, "The total tax is corect.", ScreenShot.capture(this.driver));
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The total tax isn't corect.", ScreenShot.capture(this.driver));			
 		}				
+		
+		NavigationTools.endHighLightElement(this.driver, element);
+		
 		return aux;
 	}
 	
 	public boolean verifyTotalPriceWithShipingAndTax() {
 		boolean aux = false;
 		
-		WebElement TotalPrice = this.shoppingCartAppObjects.getTotalPriceField();
+		WebElement element = this.shoppingCartAppObjects.getTotalPriceField();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
-		if(TotalPrice.getText().equalsIgnoreCase(this.PRODUCT_PRICE_WITH_SHIPPING_AND_TAX)) {
+		if(element.getText().equalsIgnoreCase(this.PRODUCT_PRICE_WITH_SHIPPING_AND_TAX)) {
 			Report.log(Status.PASS, "The total price wih shiping and tax is corect.", ScreenShot.capture(this.driver));
 		}else {
 			Report.log(Status.FAIL, "The total price wih shiping and tax isn't corect.", ScreenShot.capture(this.driver));			
 		}
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 				
 		return aux;
 	}	

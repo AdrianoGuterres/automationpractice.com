@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import com.aventstack.extentreports.Status;
 
 import guterres.adriano.appobjects.CreateAccountAppObject;
+import guterres.adriano.ressources.NavigationTools;
 import guterres.adriano.ressources.Report;
 import guterres.adriano.ressources.ScreenShot;
 
@@ -17,7 +18,7 @@ public class CreateAccountVerificationPoints {
 	private final String     PERSONAL_INFORMATION_FIRST_NAME      = "José"; 
 
 	private final String     PERSONAL_INFORMATION_LAST_NAME       = "Silva"; 
-	
+
 	private final String     PERSONAL_INFORMATION_PASSWORD        = "999888";  
 
 	private final String     PERSONAL_INFORMATION_DAY_BIRTHDAY    = "10"; 
@@ -56,8 +57,8 @@ public class CreateAccountVerificationPoints {
 	private final String     ADDRESS_MOBILE_PHONE           = "319-9999-5555";
 
 	private final String     ADDRESS_ALIAS_REFERENCE        = "Mi casa";
-	
-	
+
+
 
 	private CreateAccountAppObject formAppObject;
 
@@ -66,13 +67,17 @@ public class CreateAccountVerificationPoints {
 	public CreateAccountVerificationPoints(WebDriver driver) {
 		this.driver = driver;
 		this.formAppObject = new CreateAccountAppObject(this.driver); 
-		
+
 	}
 
 	public boolean verifyCustomerTitle() {
 		boolean aux = false;
 
 		WebElement element = formAppObject.getCustomerTitleMrRadioButton();
+
+		NavigationTools.moveToElement(this.driver,element);
+
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.isSelected() == this.PERSONAL_INFORMATION_TITLE) {			
 			Report.log(Status.PASS, "The 'Mr' radioBox was filled in correctly", ScreenShot.capture(this.driver));		
@@ -81,20 +86,28 @@ public class CreateAccountVerificationPoints {
 			Report.log(Status.FAIL, "The 'Mr' radioBox wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
 
+		NavigationTools.endHighLightElement(this.driver, element);
+
 		return aux;
 	}
 
 	public boolean verifyCustomerFirstlName() {
 		boolean aux = false;
 
-		WebElement element = formAppObject.getCustomerFirstNameTextField();
-		
+		WebElement element = formAppObject.getCustomerFirstNameTextField();		
+
+		NavigationTools.moveToElement(this.driver,element);
+
+		NavigationTools.highLightElement(this.driver, element);
+
 		if(element.getAttribute("value").equalsIgnoreCase(this.PERSONAL_INFORMATION_FIRST_NAME)) {			
 			Report.log(Status.PASS, "The 'First name' field was filled in correctly", ScreenShot.capture(this.driver));		
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The 'First name' field wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 	}
@@ -104,6 +117,10 @@ public class CreateAccountVerificationPoints {
 
 		WebElement element = this.formAppObject.getCustomerLastNameTextField();
 
+		NavigationTools.moveToElement(this.driver,element);
+
+		NavigationTools.highLightElement(this.driver, element);
+
 		if(element.getAttribute("value").equalsIgnoreCase(this.PERSONAL_INFORMATION_LAST_NAME)) {			
 			Report.log(Status.PASS, "The 'Last name' field was filled in correctly", ScreenShot.capture(this.driver));		
 			aux = true;
@@ -111,14 +128,20 @@ public class CreateAccountVerificationPoints {
 			Report.log(Status.FAIL, "The 'Last name' field wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
 
+		NavigationTools.endHighLightElement(this.driver, element);
+
 		return aux;
 	}
-	
-	
+
+
 	public boolean verifyCustomerEmail() {
 		boolean aux = false;
 
 		WebElement element = this.formAppObject.getCustomerEmailTextField();
+
+		NavigationTools.moveToElement(this.driver,element);
+
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.getAttribute("value")!= null) {			
 			Report.log(Status.PASS, "The 'Email' field was filled in correctly", ScreenShot.capture(this.driver));		
@@ -127,13 +150,19 @@ public class CreateAccountVerificationPoints {
 			Report.log(Status.FAIL, "The 'Email' field wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
 
+		NavigationTools.endHighLightElement(this.driver, element);
+
 		return aux;
 	}
-	
+
 	public boolean verifyCustomerPassword() {
 		boolean aux = false;
 
 		WebElement element = this.formAppObject.getCustomerPasswordTextField();
+
+		NavigationTools.moveToElement(this.driver,element);
+
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.getAttribute("value").equalsIgnoreCase(this.PERSONAL_INFORMATION_PASSWORD)) {			
 			Report.log(Status.PASS, "The 'Password' field was filled in correctly", ScreenShot.capture(this.driver));		
@@ -141,6 +170,8 @@ public class CreateAccountVerificationPoints {
 		}else {
 			Report.log(Status.FAIL, "The 'Password' field wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 	}
@@ -150,12 +181,14 @@ public class CreateAccountVerificationPoints {
 
 		WebElement element = this.formAppObject.getCustomerDayDateBirthComboBox();
 
+		NavigationTools.moveToElement(this.driver,element);
+
 		if(element.getAttribute("value").equalsIgnoreCase(this.PERSONAL_INFORMATION_DAY_BIRTHDAY)) {			
 			Report.log(Status.PASS, "The day of 'Date of Birthday' combobox was filled in correctly", ScreenShot.capture(this.driver));		
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The day of 'Date of Birthday' combobox wasn't filled in correctly", ScreenShot.capture(this.driver));	
-		}
+		}		
 		return aux;
 	}
 
@@ -163,7 +196,9 @@ public class CreateAccountVerificationPoints {
 		boolean aux = false;
 
 		WebElement element = this.formAppObject.getCustomerMonthDateBirthComboBox();
-		
+
+		NavigationTools.moveToElement(this.driver,element);
+
 		Select select = new Select(element);	
 
 		if(select.getFirstSelectedOption().getText().trim().equalsIgnoreCase(this.PERSONAL_INFORMATION_MONTH_BIRTHDAY)) {			
@@ -180,19 +215,23 @@ public class CreateAccountVerificationPoints {
 
 		WebElement element = this.formAppObject.getCustomerYearMonthDateBirthComboBox();
 
+		NavigationTools.moveToElement(this.driver,element);
+
 		if(element.getAttribute("value").equalsIgnoreCase(this.PERSONAL_INFORMATION_YEAR_BIRTHDAY)) {			
 			Report.log(Status.PASS, "The year of 'Date of Birthday' combobox was filled in correctly", ScreenShot.capture(this.driver));		
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The year of 'Date of Birthday' combobox wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
-		return aux;
+		return aux;		
 	}
 
 	public boolean verifyCustomerNewsletter() {
 		boolean aux = false;
 
 		WebElement element = this.formAppObject.getCustomerSignNewsletterCheckBox();
+
+		NavigationTools.moveToElement(this.driver,element);
 
 		if(element.isSelected() == this.PERSONAL_INFORMATION_NEWSLETTERS) {			
 			Report.log(Status.PASS, "The 'Sign up our newsletter!' checkbox was filled in correctly", ScreenShot.capture(this.driver));		
@@ -207,6 +246,8 @@ public class CreateAccountVerificationPoints {
 		boolean aux = false;
 
 		WebElement element = this.formAppObject.getCustomerReceiveOffersCheckBox();
+
+		NavigationTools.moveToElement(this.driver,element);
 
 		if(element.isSelected() == this.PERSONAL_INFORMATION_OFFERS_PARTNERS) {			
 			Report.log(Status.PASS, "The 'Receive specieal offers from our partners!' checkbox was filled in correctly", ScreenShot.capture(this.driver));		
@@ -225,12 +266,19 @@ public class CreateAccountVerificationPoints {
 
 		WebElement element = this.formAppObject.getAddressFirstNameTextField();
 
+		NavigationTools.moveToElement(this.driver,element);
+
+		NavigationTools.highLightElement(this.driver, element);
+
 		if(element.getAttribute("value").equalsIgnoreCase(this.ADDRESS_FIRST_NAME)) {			
 			Report.log(Status.PASS, "The 'First name' field was filled in correctly", ScreenShot.capture(this.driver));		
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The 'First name' field  wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+
+		NavigationTools.endHighLightElement(this.driver, element);
+
 		return aux;
 	}
 
@@ -239,12 +287,19 @@ public class CreateAccountVerificationPoints {
 
 		WebElement element = this.formAppObject.getAddressLastNameTextField();
 
+		NavigationTools.moveToElement(this.driver,element);
+
+		NavigationTools.highLightElement(this.driver, element);
+
 		if(element.getAttribute("value").equalsIgnoreCase(this.ADDRESS_LAST_NAME)) {			
 			Report.log(Status.PASS, "The 'Last name' field was filled in correctly", ScreenShot.capture(this.driver));		
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The 'Last name' field  wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+
+		NavigationTools.endHighLightElement(this.driver, element);
+
 		return aux;
 	}
 
@@ -253,12 +308,19 @@ public class CreateAccountVerificationPoints {
 
 		WebElement element = this.formAppObject.getAddressCompanyTextField();
 
+		NavigationTools.moveToElement(this.driver,element);
+
+		NavigationTools.highLightElement(this.driver, element);
+
 		if(element.getAttribute("value").equalsIgnoreCase(this.ADDRESS_COMPANY)) {			
 			Report.log(Status.PASS, "The 'Company' field was filled in correctly", ScreenShot.capture(this.driver));		
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The 'Company' field  wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+
+		NavigationTools.endHighLightElement(this.driver, element);
+
 		return aux;
 	}
 
@@ -267,12 +329,19 @@ public class CreateAccountVerificationPoints {
 
 		WebElement element = this.formAppObject.getAddressAddressLine1TextField();
 
+		NavigationTools.moveToElement(this.driver,element);
+
+		NavigationTools.highLightElement(this.driver, element);
+
 		if(element.getAttribute("value").equalsIgnoreCase(this.ADDRESS_ADDRESS)) {			
 			Report.log(Status.PASS, "The 'Address' field was filled in correctly", ScreenShot.capture(this.driver));		
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The 'Address' field  wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+
+		NavigationTools.endHighLightElement(this.driver, element);
+
 		return aux;
 	}
 
@@ -281,12 +350,19 @@ public class CreateAccountVerificationPoints {
 
 		WebElement element = this.formAppObject.getAddressAddressLine2TextField();
 
+		NavigationTools.moveToElement(this.driver,element);
+
+		NavigationTools.highLightElement(this.driver, element);
+
 		if(element.getAttribute("value").equalsIgnoreCase(this.ADDRESS_ADDRESS_LINE2)) {			
 			Report.log(Status.PASS, "The 'Address (Line 2)' field was filled in correctly", ScreenShot.capture(this.driver));		
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The 'Address (Line 2)' field  wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+
+		NavigationTools.endHighLightElement(this.driver, element);
+
 		return aux;
 	}
 
@@ -294,13 +370,20 @@ public class CreateAccountVerificationPoints {
 		boolean aux = false;
 
 		WebElement element = this.formAppObject.getAddressCityTextField();
-		
+
+		NavigationTools.moveToElement(this.driver,element);
+
+		NavigationTools.highLightElement(this.driver, element);
+
 		if(element.getAttribute("value").equalsIgnoreCase(this.ADDRESS_CITY)) {			
 			Report.log(Status.PASS, "The 'City' field was filled in correctly", ScreenShot.capture(this.driver));		
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The 'City' field  wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+
+		NavigationTools.endHighLightElement(this.driver, element);
+
 		return aux;
 	}
 
@@ -310,6 +393,10 @@ public class CreateAccountVerificationPoints {
 
 		WebElement element = this.formAppObject.getAddressStateComboBox();
 
+		NavigationTools.moveToElement(this.driver,element);
+
+		NavigationTools.highLightElement(this.driver, element);
+
 		Select select = new Select(element);		
 
 		if(select.getFirstSelectedOption().getText().equalsIgnoreCase(this.ADDRESS_STATE)) {			
@@ -318,6 +405,9 @@ public class CreateAccountVerificationPoints {
 		}else {
 			Report.log(Status.FAIL, "The 'State' combobox wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+
+		NavigationTools.endHighLightElement(this.driver, element);
+
 		return aux;
 	}
 
@@ -326,20 +416,27 @@ public class CreateAccountVerificationPoints {
 
 		WebElement element = this.formAppObject.getAddressPostalCodeTextField();
 
+		NavigationTools.moveToElement(this.driver,element);
+
+		NavigationTools.highLightElement(this.driver, element);
+
 		if(element.getAttribute("value").equalsIgnoreCase(this.ADDRESS_POSTAL_CODE)) {			
 			Report.log(Status.PASS, "The 'Zip/Postal Code' field was filled in correctly", ScreenShot.capture(this.driver));		
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The 'Zip/Postal Code' field wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+
+		NavigationTools.endHighLightElement(this.driver, element);
+
 		return aux;
 	}
 
 	public boolean verifyAddressCountry(){
 		boolean aux = false;
 
-		WebElement element = this.formAppObject.getAddressCountryComboBox();	
-		
+		WebElement element = this.formAppObject.getAddressCountryComboBox();
+
 		Select select = new Select(element);
 
 		if(select.getFirstSelectedOption().getText().equalsIgnoreCase(this.ADDRESS_COUNTRY)) {			
@@ -357,12 +454,19 @@ public class CreateAccountVerificationPoints {
 
 		WebElement element = this.formAppObject.getAddressAdditionalInfoTextArea();
 
+		NavigationTools.moveToElement(this.driver,element);
+
+		NavigationTools.highLightElement(this.driver, element);
+
 		if(element.getAttribute("value").equalsIgnoreCase(this.ADDRESS_ADDITIONAL_INFORMATION)) {			
 			Report.log(Status.PASS, "The 'Additional Information' textArea was filled in correctly", ScreenShot.capture(this.driver));		
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The 'Additional Information' textArea wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+
+		NavigationTools.endHighLightElement(this.driver, element);
+
 		return aux;
 	}
 
@@ -371,12 +475,18 @@ public class CreateAccountVerificationPoints {
 
 		WebElement element = this.formAppObject.getAddressHomePhoneTextField();
 
+		NavigationTools.moveToElement(this.driver,element);
+
+		NavigationTools.highLightElement(this.driver, element);
+
 		if(element.getAttribute("value").equalsIgnoreCase(this.ADDRESS_HOME_PHONE)) {			
 			Report.log(Status.PASS, "The 'Home phone' field was filled in correctly", ScreenShot.capture(this.driver));		
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The 'Home phone' field wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+
+		NavigationTools.endHighLightElement(this.driver, element);
 		return aux;
 	}
 
@@ -385,19 +495,30 @@ public class CreateAccountVerificationPoints {
 
 		WebElement element = this.formAppObject.getAddressMobilePhoneTextField();
 
+		NavigationTools.moveToElement(this.driver,element);
+
+		NavigationTools.highLightElement(this.driver, element);
+
 		if(element.getAttribute("value").equalsIgnoreCase(this.ADDRESS_MOBILE_PHONE)) {			
 			Report.log(Status.PASS, "The 'Mobile phone' field was filled in correctly", ScreenShot.capture(this.driver));		
 			aux = true;
 		}else {
 			Report.log(Status.FAIL, "The 'Mobile phone' field wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+
+		NavigationTools.endHighLightElement(this.driver, element);
+
 		return aux;
 	}
-	
+
 	public boolean verifyAddressAliasAddress(){
 		boolean aux = false;
 
 		WebElement element = formAppObject.getAddressAliasReferenceTextField();
+
+		NavigationTools.moveToElement(this.driver,element);
+
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.getAttribute("value").equalsIgnoreCase(this.ADDRESS_ALIAS_REFERENCE)) {			
 			Report.log(Status.PASS, "The 'Home phone' field was filled in correctly", ScreenShot.capture(this.driver));		
@@ -405,6 +526,9 @@ public class CreateAccountVerificationPoints {
 		}else {
 			Report.log(Status.FAIL, "The 'Home phone' field wasn't filled in correctly", ScreenShot.capture(this.driver));	
 		}
+
+		NavigationTools.endHighLightElement(this.driver, element);
+
 		return aux;
 	}
 

@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.*;
 import com.aventstack.extentreports.Status;
 
 import guterres.adriano.appobjects.*;
+import guterres.adriano.ressources.NavigationTools;
 import guterres.adriano.ressources.Report;
 import guterres.adriano.ressources.ScreenShot;
 
@@ -38,14 +39,18 @@ public class AddFirstProductVerificationPoints {
 	public boolean verifySelectFirstProduct() {
 		boolean aux = false;		
 
-		WebElement addCartButton = this.selectAppObject.getAddToCartFirstProductButton();
+		WebElement element = this.selectAppObject.getAddToCartFirstProductButton();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
-		if(addCartButton.isEnabled()) {
+		if(element.isEnabled()) {
 			Report.log(Status.PASS, "the first product was highlighted correctly.", ScreenShot.capture(this.driver));		
 			aux = true;
 		}else {		
 			Report.log(Status.FAIL, "the first product wasn't highlighted correctly.", ScreenShot.capture(this.driver));
 		}	
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 	}
@@ -59,6 +64,8 @@ public class AddFirstProductVerificationPoints {
 		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div/div[1]/header/div[3]/div/div/div[4]/div[1]/div[2]/div[4]/a")));
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div[1]/header/div[3]/div/div/div[4]/div[2]/div/div/div/div[1]/ul/li[3]/div/a/img")));
+		
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.isEnabled()) {
 			Report.log(Status.PASS, "The product was selected correctly", ScreenShot.capture(this.driver));		
@@ -66,6 +73,8 @@ public class AddFirstProductVerificationPoints {
 		}else {		
 			Report.log(Status.FAIL, "The product wasn't selected correctly", ScreenShot.capture(this.driver));
 		}	
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 	}
@@ -77,6 +86,8 @@ public class AddFirstProductVerificationPoints {
 		boolean aux = false;		
 
 		WebElement element = this.selectAppObject.getProductTitleLabel();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.getText().equalsIgnoreCase(this.PRODUCT_TITLE)) {
 			Report.log(Status.PASS, "The product title was corretly.", ScreenShot.capture(this.driver));		
@@ -84,6 +95,8 @@ public class AddFirstProductVerificationPoints {
 		}else {		
 			Report.log(Status.FAIL, "The product title wasn't corretly.", ScreenShot.capture(this.driver));
 		}	
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 	}
@@ -94,12 +107,16 @@ public class AddFirstProductVerificationPoints {
 
 		WebElement element = this.selectAppObject.getProductQuantityLabel();
 		
+		NavigationTools.highLightElement(this.driver, element);
+		
 		if(element.getText().equalsIgnoreCase(this.PRODUCT_QUANTITY)) {
 			Report.log(Status.PASS, "The product quantity was corretly.", ScreenShot.capture(this.driver));		
 			aux = true;
 		}else {		
 			Report.log(Status.FAIL, "The product quantity wasn't corretly.", ScreenShot.capture(this.driver));
 		}	
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 	}
@@ -109,6 +126,8 @@ public class AddFirstProductVerificationPoints {
 		boolean aux = false;		
 
 		WebElement element = this.selectAppObject.getTotalProductsLabel();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.getText().equalsIgnoreCase(this.TOTAL_PRODUCT)) {
 			Report.log(Status.PASS, "The total products was corretly.", ScreenShot.capture(this.driver));		
@@ -116,6 +135,8 @@ public class AddFirstProductVerificationPoints {
 		}else {		
 			Report.log(Status.FAIL, "The total products wasn't corretly.", ScreenShot.capture(this.driver));
 		}	
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 	}
@@ -126,6 +147,8 @@ public class AddFirstProductVerificationPoints {
 		boolean aux = false;		
 
 		WebElement element = this.selectAppObject.getTotalShippingLabel();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.getText().equalsIgnoreCase(this.TOTAL_SHIPPING)) {
 			Report.log(Status.PASS, "The total shipping was corretly.", ScreenShot.capture(this.driver));		
@@ -133,6 +156,8 @@ public class AddFirstProductVerificationPoints {
 		}else {		
 			Report.log(Status.FAIL, "The total shipping wasn't corretly.", ScreenShot.capture(this.driver));
 		}	
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 	}
@@ -142,6 +167,8 @@ public class AddFirstProductVerificationPoints {
 		boolean aux = false;		
 
 		WebElement element = this.selectAppObject.getTotalLabel();
+		
+		NavigationTools.highLightElement(this.driver, element);
 
 		if(element.getText().equalsIgnoreCase(this.TOTAL)) {
 			Report.log(Status.PASS, "The total price was corretly.", ScreenShot.capture(this.driver));		
@@ -149,6 +176,8 @@ public class AddFirstProductVerificationPoints {
 		}else {		
 			Report.log(Status.FAIL, "The total price wasn't corretly.", ScreenShot.capture(this.driver));
 		}	
+		
+		NavigationTools.endHighLightElement(this.driver, element);
 
 		return aux;
 	}
